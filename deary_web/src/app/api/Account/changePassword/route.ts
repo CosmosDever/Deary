@@ -1,46 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/app/lib/mongodb";
 import bcryptjs from "bcryptjs";
-import jwt from "jsonwebtoken";
+
 export async function POST(req: NextRequest) {
   try {
     const reqBody = await req.json();
-    const { username, password } = reqBody;
+    const { email, newPassword } = reqBody;
     const client = await clientPromise;
     const db = client.db("Deary");
     const usersCollection = db.collection("Account");
 
-    const user = await usersCollection.findOne({ username });
+    const user = await usersCollection.findOne({ email });
 
     if (!user) {
       return NextResponse.json({
         success: false,
-        message: "Invalid username or password",
+        message: "User not found",
       });
     }
-    const isPasswordValid = await bcryptjs.compare(password, user.password);
-    if (!isPasswordValid) {
+    const isPasswordSame = await bcryptjs.compare(newPassword, user.password);
+    if (isPasswordSame) {
       return NextResponse.json({
         success: false,
-        message: "Invalid username or password",
+        message: "New password cannot be same as old password",
       });
     }
-    const tokenData = {
-      id: user._id,
-      username: user.username,
+    const salt = await bcryptjs.genSalt(10);
+    const hashedPassword = await bcryptjs.hash(newPassword, salt);
+    //ifpasswordsame
+
+    const newUser = {
       email: user.email,
+      username: user.username,
+      password: hashedPassword,
     };
-    const token = await jwt.sign(tokenData, process.env.JWT_SECRET!, {
-      expiresIn: "1m",
-    });
-    const response = NextResponse.json({
+    await usersCollection.updateOne({ email }, { $set: newUser });
+    return NextResponse.json({
       success: true,
-      message: "Login successful",
+      message: "Password changed successfully",
     });
-    response.cookies.set("token", token, {
-      httpOnly: true,
-    });
-    return response;
   } catch (error: any) {
     console.error("Error handling POST request:", error);
     return NextResponse.json({ error: error.message });
