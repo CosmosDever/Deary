@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/app/lib/mongodb";
 import bcryptjs from "bcryptjs";
+import { ObjectId } from "mongodb";
+
 export async function POST(req: NextRequest) {
   try {
     const reqBody = await req.json();
@@ -8,6 +10,7 @@ export async function POST(req: NextRequest) {
     const client = await clientPromise;
     const db = client.db("Deary");
     const usersCollection = db.collection("Account");
+    const diariesCollection = db.collection("Diary");
 
     const user = await usersCollection.findOne({ email });
 
@@ -17,16 +20,27 @@ export async function POST(req: NextRequest) {
         message: "Email already exists",
       });
     }
-    //hash password
+
+    // Hash password
     const salt = await bcryptjs.genSalt(10);
     const hashedPassword = await bcryptjs.hash(password, salt);
+
+    // Create new user object with hashed password
     const newUser = {
       email,
       username,
       password: hashedPassword,
     };
 
-    await usersCollection.insertOne(newUser);
+    // Insert new user into usersCollection
+    const { insertedId } = await usersCollection.insertOne(newUser);
+    const userNumericId = insertedId.toHexString();
+
+    // Insert new diary entry for the user
+    await diariesCollection.insertOne({
+      user_id: userNumericId,
+      diary: {},
+    });
 
     return NextResponse.json({
       success: true,
