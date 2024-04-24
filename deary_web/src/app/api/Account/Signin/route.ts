@@ -40,6 +40,8 @@ export async function POST(req: NextRequest) {
     response.cookies.set("token", token, {
       httpOnly: true,
     });
+    const cookie = response.cookies.get("token");
+    console.log("Cookie:", cookie);
     return response;
   } catch (error: any) {
     console.error("Error handling POST request:", error);
