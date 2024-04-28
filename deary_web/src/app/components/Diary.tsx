@@ -1,10 +1,10 @@
 
 'use client'
 
-export default function Home() {
+export default function Diary() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>me</h1>
+      <h1>Diary</h1>
     </main>
   );
 }

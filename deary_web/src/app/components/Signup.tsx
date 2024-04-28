@@ -1,10 +1,10 @@
 
 'use client'
 
-export default function Home() {
+export default function Signup() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>me</h1>
+      <h1>Sign Up</h1>
     </main>
   );
 }
