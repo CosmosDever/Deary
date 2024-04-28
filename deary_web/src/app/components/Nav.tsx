@@ -10,8 +10,8 @@ import Signin from './Signin';
 function Nav() {
     return (
         <Router>
-        <nav className='absolute inset-x-0 bg-[#363636] top-0 p-4'>
-            <div className='flex items-center justify-between '>
+        <nav className='absolute inset-x-0 top-0 p-4 h-40 bg-[#363636] '>
+            <div className='flex items-center justify-between  '>
             <Link as={Link} to={"/home"} className='text-white text-2xl font-bold'>Deary</Link>
                 <div className='flex space-x-4'>
                     <Link as={Link} to={"/diary"} className='text-white'>Diary</Link>
