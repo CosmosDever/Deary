@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col mt-20">
       <div className=''> {/*section1*/}
-          <div>
+          <div className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-pink-600'>
             <h1>How was your day?</h1> <br />
             <p>Welcome to Deary</p> 
             <p>the safest place for your thoughts.</p>
             <p>Let’s keep your memory and your mood!</p>
-            <button>Get started</button>
+            <button className='bg-[#6C2BB8] w-[160px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black]'>Get started</button>
           </div>
 
           <div>

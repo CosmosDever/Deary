@@ -6,23 +6,23 @@ import Home from '../page';
 import Diary from './Diary';
 import Signup from './Signup';
 import Signin from './Signin';
-import dearylogo from '@/image/dearylogo.png';
+import Dearylogo from '@/app/image/dearylogo.png';
 
 function Nav() {
     return (
         <Router>
-        <nav className='absolute inset-x-0 top-0 p-5 h-20 bg-[#363636] '>
+        <nav className='fixed top-0 w-full inset-x-0 p-3 h-[75px] bg-[#363636] font-mitr '>
             <div className='flex items-center justify-between  '>
-            <Link as={Link} to={"/home"} className='flex flex-row items-center gap-2 text-white text-2xl font-bold '> <img src={dearylogo}/>Deary</Link>
-                <div className='flex space-x-8 mr-3'>
+            <Link as={Link} to={"/"} className='flex flex-row items-center gap-2 text-white text-2xl font-semibold '><img src={Dearylogo}/>Deary</Link>
+                <div className='flex items-center justify-center space-x-8 mr-3'>
                     <Link as={Link} to={"/diary"} className='text-white'>Diary </Link>
                     <Link as={Link} to={"/sign-up"} className='text-white'>Sign Up</Link>
-                    <Link as={Link} to={"/sign-in"} className='text-white '>Sign in</Link>
+                    <Link as={Link} to={"/sign-in"} className='flex justify-center items-center text-white bg-[#DB0361] w-[100px] rounded-[10px] p-2 border-black border-2 mb-2 shadow-[7px_6px_black] '>Sign in</Link>
                 </div>
             </div>
             <div>
                 <Routes>
-                    <Route path="/home" element={<Home />}>
+                    <Route path="/" element={<Home />}>
                     </Route>
                     <Route path="/diary" element={<Diary />}>
                     </Route>
