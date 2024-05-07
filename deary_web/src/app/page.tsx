@@ -14,7 +14,7 @@ export default function Home() {
             <p>Welcome to Deary</p> 
             <p>the safest place for your thoughts.</p>
             <p>Let’s keep your memory and your mood!</p>
-            <button className='bg-[#6C2BB8] w-[160px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black]'>Get started</button>
+            <button className='bg-[#6C2BB8] w-[160px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-[15px]'>Get started</button>
           </div>
 
           <div>
