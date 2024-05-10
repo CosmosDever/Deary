@@ -30,7 +30,7 @@ export default function Signin() {
                         className="mt-2 p-3 rounded-[15px] border-2 border-[#363636] w-full"
                     />
                 </label><br />
-                <button className='signin-button bg-[#6C2BB8] w-[130px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 ' 
+                <button className='signin-button bg-[#6C2BB8] w-[130px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100' 
                     type="button">Sign In</button>
                 <p  className="text-black self-center flex gap-1 mt-4">
                 Don’t have an account?<a className="font-semibold underline" href="/sign-up">Sign Up</a>
