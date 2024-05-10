@@ -6,6 +6,10 @@ import Home from '../page';
 import Diary from './Diary';
 import Signup from './Signup';
 import Signin from './Signin';
+import Changepass from './Changepass';
+import SelectFeel from './SelectFeel';
+import MonthTotal from './MonthTotal';
+import Note from './Note';
 import Dearylogo from '@/app/image/dearylogo.png';
 
 function Nav() {
@@ -29,6 +33,14 @@ function Nav() {
                     <Route path="/sign-up" element={<Signup />}>
                     </Route>
                     <Route path="/sign-in" element={<Signin />}>
+                    </Route>
+                    <Route path="/change-pass" element={<Changepass />}>
+                    </Route>
+                    <Route path="/select-feel" element={<SelectFeel />}>
+                    </Route>
+                    <Route path="/month-total" element={<MonthTotal />}>
+                    </Route>
+                    <Route path="/note" element={<Note />}>
                     </Route>
                 </Routes>
             </div>

@@ -3,8 +3,8 @@
 
 export default function Signup() {
   return (
-    <main className="flex flex-row items-center justify-center relative font-mitr mt-[40px]">
-      <div className="flex flew-row  items-center justify-center bg-black bg-opacity-[30%] backdrop-blur-sm p-10 rounded-[50px] gap-[90px]">
+    <main className="flex flex-col items-center justify-center relative font-mitr mt-[40px]">
+      <div className="flex flew-col  items-center justify-center bg-black bg-opacity-[30%] backdrop-blur-sm p-10 rounded-[50px] gap-[90px] shadow-lg ">
         
         <div>
           <h1>picture</h1>
