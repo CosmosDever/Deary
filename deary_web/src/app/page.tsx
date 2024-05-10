@@ -1,15 +1,16 @@
 
 'use client'
 import React from 'react'
-import gridbg from '@/image/gridbg.png'; 
+import gridbg from '@/imalge/gridbg.png'; 
 import rocket from '@/image/rocket.png';
 import pencil from '@/image/pencil.png';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col mt-20">
-      <div className=''> {/*section1*/}
-          <div className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-pink-600'>
+    <main className="flex flex-col  w-screen bg-[url('/image/gridbg.png')] ">
+      <div className=' w-screen'> {/*section1*/}
+          <div className='flex justify-between w-screen'>
+          <div className='text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-pink-600  mt-20'>
             <h1>How was your day?</h1> <br />
             <p>Welcome to Deary</p> 
             <p>the safest place for your thoughts.</p>
@@ -18,11 +19,12 @@ export default function Home() {
           </div>
 
           <div>
-            <img src="" alt="" />
+            <img className='w-[586px] h-[586px]' src="image/rocket.png" />
+          </div>
           </div>
       
         <div className='flex flex-row mt-10 gap-10'> {/*section2*/}
-          <div className='bg-[#FDF9F2] p-5 rounded-[15px] border-4 border-black'>
+          <div className='bg-[#FDF9F2] p-5 rounded-[15px] border-4 border-black flex'>
               <div className=''>
                 <p>Keep a private and free online diary</p>
                 <p>You want to keep your thoughts in a place </p>
@@ -32,7 +34,7 @@ export default function Home() {
                 <p>for your very personal topics.</p><br />
               </div>
               <div>
-                <img src="pencil" alt="" />
+                <img className='w-[222px] h-[242px]' src="image/pencil.png"  />
               </div>
           </div>
 
@@ -45,12 +47,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div> {/*section3*/}
+        <div className='w-screen'> {/*section3*/}
           <div className='bg-[#FDF9F2] mt-10'>
             <div>
               <img src="" alt="" />
             </div>
-            <div>
+            <div className='text-center'>
               <p>Secret and private</p>
               <p>The use of Deary is private only. There is no feature to make entries</p>
               <p>publicly viewable. This ensures that your secret diary remains safe from</p>
@@ -59,7 +61,7 @@ export default function Home() {
           </div>
 
           <div className='bg-[#FDF9F2] mt-5'>
-            <div>
+            <div className='text-center'>
               <p>Keep your mood</p>
               <p>Deary can keep your daily emotions in a crystal ball. </p>
               <p>So you can see your overall past mood. </p>
@@ -74,7 +76,7 @@ export default function Home() {
             <div>
                 <img src="" alt="" />
             </div>
-            <div>
+            <div className='text-center'>
               <p>Access via Internet</p>
               <p>To use Deary all you need is a computer with Internet access. </p>
               <p>Whether you are at home or on the move if you have a sudden urge to write, </p>
@@ -82,10 +84,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-
-
-      <footer className='bg-[#363636] h-20 mt-10'>
+        <footer className='bg-[#363636] h-20 mt-10 w-screen'>
         <p className='text-white'>Follow us</p>
         <div>
           <a href="">Facebook</a>
@@ -93,6 +92,10 @@ export default function Home() {
           <a href="">Twitter</a>
         </div>
       </footer>
+      </div>
+
+
+      
     </main>
   );
 }
