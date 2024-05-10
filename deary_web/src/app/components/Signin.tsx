@@ -15,10 +15,10 @@ export default function Signin() {
             <h1 className="text-[55px] font-semibold text-black ">Welcome Back!</h1>
             <form className=" w-full flex flex-col justify-center items-center">
                     <label className="text-[#000000] w-[350px] mt-2">
-                        Email<br />
+                        Username<br />
                         <input 
-                            type="email"
-                            placeholder="example@gmail.com"
+                            type="username"
+                            placeholder="Enter username"
                             className="mt-2 p-3 rounded-[15px] border-2 border-[#363636] w-full"
                         />
                     </label>
