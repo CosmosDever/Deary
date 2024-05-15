@@ -1,27 +1,33 @@
 
 'use client'
+import "./SelectFeel.css";
 
 export default function Diary() {
 return (
-    <main className="flex min-h-screen flex-col items-center p-24">
+    <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')] ">
+    <div className="flex min-h-screen flex-col items-center p-24">
         <h1 className="text-[45px] font-semibold text-black">How are you feeling?</h1>
         <div className="flex flex-row items-center gap-5">
             <div className="flex flex-col items-center">  
-                <div className="w-24 h-24 bg-blue-300 rounded-full mt-[40px]"></div>
+                <div className="ball"></div>
                 <h2 className="mt-[10px]">Sad</h2>
             </div>
+
+            <div className="flex flex-col items-center">  
+                <div className="mt-[40px] w-24 h-24 bg-myorb relative shadow-[inset_0_0_20px_#fff,inset_10px_0_46px_#eaf5fc,inset_88px_0px_60px_#c2d8fe,inset_-20px_-60px_100px_#fde9ea,inset_0_50px_140px_#fde9ea,0_0_90px_#fff] rounded-[50%]"></div>
+                <h2 className="mt-[10px]">Sad</h2>
+            </div>
+
             <div className="flex flex-col items-center">  
                 <div className="w-24 h-24 bg-blue-300 rounded-full mt-[40px]"></div>
                 <h2 className="mt-[10px]">Sad</h2>
             </div>
+
             <div className="flex flex-col items-center">  
                 <div className="w-24 h-24 bg-blue-300 rounded-full mt-[40px]"></div>
                 <h2 className="mt-[10px]">Sad</h2>
             </div>
-            <div className="flex flex-col items-center">  
-                <div className="w-24 h-24 bg-blue-300 rounded-full mt-[40px]"></div>
-                <h2 className="mt-[10px]">Sad</h2>
-            </div>
+
             <div className="flex flex-col items-center">  
                 <div className="w-24 h-24 bg-blue-300 rounded-full mt-[40px]"></div>
                 <h2 className="mt-[10px]">Sad</h2>
@@ -33,6 +39,7 @@ return (
                             transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-10 ' 
         type="button">Next</button>
         </a>
+    </div>
     </main>
 );
 }

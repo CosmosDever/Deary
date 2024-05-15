@@ -3,12 +3,12 @@
 
 export default function Signin() {
   return (
-    <main className="flex flex-row items-center justify-center relative font-mitr mt-[40px]">
-      <div className="flex flew-row  items-center justify-center bg-black bg-opacity-[30%] backdrop-blur-sm p-10 rounded-[50px] gap-[90px]">
+    <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')]">
+    <div className="flex flex-row items-center justify-center relative font-mitr mt-[40px]">
+      <div className="flex flew-col items-center justify-center bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-16 rounded-[50px] gap-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
         
         <div>
-          <h1>picture</h1>
-          <img src="" alt="" />
+          <img src="image/uni.png" />
         </div>
 
         <div>
@@ -40,6 +40,7 @@ export default function Signin() {
         </div>
 
       </div>
+    </div>
     </main>
   );
 }

@@ -11,7 +11,8 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        'myorb': 'radial-gradient(circle at 75% 30%, white 5px, aqua 8%, darkblue 60%, aqua 100%)',
       },
     },
     fontFamily: {
