@@ -88,6 +88,7 @@ return (
 
         </div>
         
+        {/* button */}
         <div className="flex flex-row justify-center gap-5">
         <a href="/diary">
         <button className='signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 

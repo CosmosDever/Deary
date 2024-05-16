@@ -1,6 +1,8 @@
 
 'use client'
 
+import "./Note.css";
+
 export default function Diary() {
 return (
     <main className="flex flex-col w-screen h-auto text-[18px] bg-[url('/image/gridbg.png')] ">
@@ -8,8 +10,13 @@ return (
         <div className="flex flex-col items-center w-[1000px] h-auto bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-16 rounded-[50px]  shadow-[0_3px_10px_rgb(0,0,0,0.2)]  ">
             <h1 className="text-[#363636]">Friday, 19 April 2024, 12:30 PM</h1>
             {/* feeling */}
-            <div className="w-24 h-24 bg-blue-300 rounded-full mt-[40px]"></div>
-            <h2 className="mt-[10px]">Sad</h2>
+            <div className="container flex flex-col items-center">  
+                <div className="orb mt-[40px] drop-shadow-lg animate-gradient">
+                    <div className="reflection" ></div>
+                    <div className="inner-glow"></div>
+                </div>
+                <h2 className="text mt-[10px]">Sad</h2>
+            </div>
             {/* text */}
             <div className="w-[900px] h-auto mt-[40px]">
                 <div className="relative w-full min-w-[500px]">
@@ -28,14 +35,19 @@ return (
         </div>        
         
 
-
-        
-
-            <a href="/month-total">
-                <button className='signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
-                        transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-[40px]  ' 
-                type="button">Next</button>
+            {/* button */}
+        <div className="flex flex-row justify-center gap-5">
+            <a href="/select-feel">
+            <button className='signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
+                                transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-10 ' 
+            type="button">Back</button>
             </a>
+            <a href="/month-total">
+            <button className='signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
+                                transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-10 ' 
+            type="button">Next</button>
+            </a>
+        </div>
 
         <button className='fixed bottom-2 right-5 flex flex-row justify-center items-center gap-2 bg-[#6C2BB8] w-[60px] h-[60px] rounded-[100px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 ' 
             type="button"><img className="w-[15px] h-auto" src="image/plus.png"/></button>
