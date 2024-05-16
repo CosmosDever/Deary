@@ -19,7 +19,7 @@ export default function Home() {
             </div>
 
             <div>
-              <img className='w-[480px] h-[480px] mr-[120px]' src="image/rocket.png" />
+              <img className='w-[480px] h-[480px] mr-[120px] mt-7' src="image/rocket.png" />
             </div>
           </div>
       

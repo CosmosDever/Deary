@@ -15,9 +15,9 @@ import Dearylogo from '../image/Dearylogo.png';
 function Nav() {
     return (
         <Router>
-        <nav className=' top-0 w-screen inset-x-0  h-[75px] bg-[#363636] font-mitr  '>
-            <div className='flex items-center justify-between h-[75px] '>
-            <Link as={Link} to={"/"} className='flex flex-row items-center gap-2 text-white text-2xl font-semibold '><img  src='image/dearylogo.png' height='50px' width='50px' />Deary</Link>
+        <nav className='top-0 w-screen inset-x-0  h-[75px] bg-[#363636] font-mitr '>
+            <div className='    flex items-center justify-between h-[75px] '>
+                <Link as={Link} to={"/"} className='flex flex-row items-center gap-2 text-white text-2xl font-semibold '><img  src='image/dearylogo.png' height='50px' width='50px' />Deary</Link>
                 <div className='flex items-center justify-center space-x-8 mr-10'>
                     <Link as={Link} to={"/diary"} className='text-white hover:scale-110 duration-100 '>Diary </Link>
                     <Link as={Link} to={"/sign-up"} className='text-white hover:scale-110  duration-100 '>Sign Up</Link>

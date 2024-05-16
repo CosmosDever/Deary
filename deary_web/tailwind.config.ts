@@ -14,6 +14,14 @@ const config: Config = {
         "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'myorb': 'radial-gradient(circle at 75% 30%, white 5px, aqua 8%, darkblue 60%, aqua 100%)',
       },
+      animation: {
+        'gradient': 'gradient 8s linear infinite',
+      },
+      keyframes: {
+        'gradient': {
+          to: { 'background-position': '200% center' },
+        }
+      }
     },
     fontFamily: {
       mitr: ["Mitr", "sans-serif"],
