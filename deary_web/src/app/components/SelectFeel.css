@@ -31,7 +31,7 @@
         /* box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1); */
 }
 
-.Loved_orb {
+/* .Loved_orb {
         width: 96px;
 	height: 96px;
 	border-radius: 70px;
@@ -50,6 +50,14 @@
 	top: 10px;	
 	background: linear-gradient(top,  rgb(255, 0, 0) 0%,rgba(232,232,232,1) 1%,rgba(255,255,255,0) 100%);
 	border-radius: 40px / 20px;	
+} */
+
+.Loved_orb {
+        background: black;
+        border-radius: 50%;
+        height: 96px;
+        width: 96px;
+        background: radial-gradient(circle at 32px 32px, #fd71ca, #141414);
 }
 
 .Calm_orb {
