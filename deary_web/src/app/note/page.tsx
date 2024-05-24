@@ -1,11 +1,11 @@
 
 'use client'
 
-import "./Note.css";
+import "./page.css";
 
 export default function Diary() {
 return (
-    <main className="flex flex-col w-screen h-auto text-[18px] bg-[url('/image/gridbg.png')] ">
+    <main className="flex flex-col w-screen h-auto text-[18px] bg-[url('/image/gridbg.png')] font-mitr ">
     <div className="relative flex min-h-screen flex-col items-center p-10 gap-10">
         <div className="flex flex-col w-[1000px] h-auto bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-12 rounded-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)]  ">
             

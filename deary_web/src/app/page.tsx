@@ -1,18 +1,18 @@
 
 'use client'
-import React from 'react'
 
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')]">
-      <div className='w-screen '> 
+
+    <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')] font-mitr">
+      <div className='w-screen '>  
           <div className='flex justify-center w-screen mt-5 gap-7'> {/*section1*/}
             <div className='text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790]  mt-20 ml-[120px]'>
               <h1 className='text-[60px] font-semibold'>How was your day?</h1> <br />
               <p className='text-[25px]  '>Welcome to Deary</p> 
               <p className='text-[25px] '>the safest place for your thoughts.</p>
-              <p className='text-[25px]  text-[#363636] '>Let’s keep your memory and your mood!</p>
+              <p className='text-[25px]  text-[#212121] '>Let’s keep your memory and your mood!</p>
               <a href="/sign-in">
               <button className='bg-[#6C2BB8] w-[220px] rounded-[10px] p-2 text-[25px] text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-[30px]'>Get started</button>
               </a>
@@ -23,9 +23,9 @@ export default function Home() {
             </div>
           </div>
       
-        <div className='flex flex-row justify-center mt-10 gap-10'> {/*section2*/}
-          <div className='bg-[#FDF9F2] p-8 rounded-[15px] border-4 border-[#363636] flex'>
-              <div className=''>
+        <div className='flex flex-row justify-center mt-10 gap-10 text-[#212121] '> {/*section2*/}
+          <div className='flex bg-[#FDF9F2] p-7 rounded-[15px] border-4 border-[#363636] '>
+              <div>
                 <h1 className='text-[25px] font-medium'>Keep a private and free online diary</h1>
                 <div className='text-[18px] mt-4'>
                   <p>You want to keep your thoughts in a place </p>
@@ -34,26 +34,30 @@ export default function Home() {
                   <p>The online diary Deary offers you a safe place </p>
                   <p>for your very personal topics.</p><br />
                 </div>
-                
               </div>
+              
               <div>
                 <img className='w-[200px] h-auto' src="image/pencil.png"  />
               </div>
           </div>
 
-          <div className='bg-[#FDF9F2] p-8 rounded-[15px] border-4 border-[#363636]'>
+          <div className='flex flex-row bg-[#FDF9F2] p-7 rounded-[15px] gap-5 border-4 border-[#363636]'>
+            <div>
             <h1 className='text-[25px] font-medium'>Mood-Tracking</h1>
-            <div className='text-[18px] mt-4'>
-              <p>Take note of your feelings while  </p>
-              <p>journaling, and keep track of how </p>
-              <p>your mood fluctuates across your </p>
-              <p>journal entries.</p>
+              <p className='text-[18px] mt-4'>Take note of your feelings while  </p>
+              <p className='text-[18px]'>journaling, and keep track of how </p>
+              <p className='text-[18px]'>your mood fluctuates across your </p>
+              <p className='text-[18px]'>journal entries.</p>
+            </div>
+            <div>
+              <img className='w-[190px] h-auto' src="image/smile2.png"  />
             </div>
           </div>
+
         </div>
 
         <div className='w-screen'> {/*section3*/}
-          <div className='flex justify-center items-center gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] p-7'>
+          <div className='flex justify-center items-center gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] text-[#212121] p-7'>
             <div>
               <img className='w-[190px] h-auto' src="image/private.png" />
             </div>
@@ -65,7 +69,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='flex justify-center items-center gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] p-7'>
+          <div className='flex justify-center items-center gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] text-[#212121] p-7'>
             <div className='text-center text-[18px]'>
               <p className='text-[25px] font-medium'>Keep your mood</p>
               <p className='mt-4'>Deary can keep your daily emotions in a crystal ball. </p>
@@ -77,7 +81,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className='flex justify-center items-center gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] p-7'>
+          <div className='flex justify-center items-center gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] text-[#212121] p-7'>
             <div>
                 <img className='w-[160px] h-auto' src="image/accesss.png" />
             </div>
@@ -95,10 +99,7 @@ export default function Home() {
           <a href=""> <img  className='w-[150px] h-auto' src="image/contact.png"/></a>
         </div>
       </footer>
-      </div>
-
-
-      
+      </div>      
     </main>
   );
 }

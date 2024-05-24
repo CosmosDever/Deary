@@ -1,14 +1,14 @@
 
 'use client'
-import "./SelectFeel.css";
+import "./page.css";
 
-export default function Diary() {
+export default function Page() {
 return (
-    <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')] ">
+    <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')] font-mitr ">
     <div className="flex min-h-screen flex-col items-center p-10">
-        <h1 className="text-[45px] font-semibold text-black text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790] ">How are you feeling?</h1>
+        <h1 className="text-[45px] font-semibold  text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790] ">How are you feeling?</h1>
         
-        <div className="flex flex-row items-center gap-5">    
+        <div className="flex flex-row items-center gap-5 text-[#212121]">    
             
             <div className="container flex flex-col items-center " >  
                 <div className="Happy_orb mt-[40px] drop-shadow-lg hover:animate-bounce animate-gradient">

@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 
-const Changepass = () => {
+export default function Page() {
 
     const [email, setEmail] = useState("");
     const [newPassword, setNewPassword] = useState("");
@@ -14,7 +14,7 @@ const Changepass = () => {
     
 
 return (
-    <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')]">
+    <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')] font-mitr">
     <div className="flex flex-row items-center justify-center relative font-mitr mt-[40px]">
     <div className="flex flew-col items-center justify-center bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-16 rounded-[50px] gap-[30px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
         
@@ -65,4 +65,3 @@ return (
     </main>
 );
 }
-export default Changepass;
