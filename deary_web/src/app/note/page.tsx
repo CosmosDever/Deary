@@ -2,8 +2,22 @@
 'use client'
 
 import "./page.css";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-export default function Diary() {
+export default function Page() {
+    const router = useRouter();
+    const [selectedOrb, setSelectedOrb] = useState<string | null>(null);
+    const [emotion, setEmotion] = useState<string | null>(null);
+
+    useEffect(() => {
+        const { selectedOrb, emotion } = router.query;
+        if (typeof selectedOrb === 'string' && typeof emotion === 'string') {
+            setSelectedOrb(selectedOrb);
+            setEmotion(emotion);
+        }
+    }, [router.query]);
+
 return (
     <main className="flex flex-col w-screen h-auto text-[18px] bg-[url('/image/gridbg.png')] font-mitr ">
     <div className="relative flex min-h-screen flex-col items-center p-10 gap-10">
@@ -15,13 +29,18 @@ return (
             </div>
             
             {/* feeling */}
-            <div className="container flex flex-col justify-center items-center">  
+            {/* <div className="container flex flex-col justify-center items-center">  
                 <div className="orb mt-[40px] drop-shadow-lg animate-gradient">
                     <div className="reflection" ></div>
                     <div className="inner-glow"></div>
                 </div>
                 <h2 className="text mt-[10px]">Sad</h2>
-            </div>
+            </div> */}
+            <h1 className="text-[45px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790]">
+                feeling: {selectedOrb} ({emotion})
+            </h1>
+            
+
             {/* text */}
             <div className="flex justify-center items-center w-[900px] h-auto mt-[40px]">
                 <div className="relative w-full min-w-[500px]">
