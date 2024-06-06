@@ -7,7 +7,7 @@ export default function Page() {
       <div className="w-screen flex  justify-center ">
         <div className="flex flex-col items-center mt-10">
           <h1 className="text-[50px] font-semibold ">Year</h1>
-          <div className="grid grid-cols-3 gap-5 mt-5">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-5 mt-5">
             <div className="flex flex-col items-center w-[350px] h-[300px] bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-16 rounded-[50px] gap-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)]">month</div>
             <div className="flex flex-col items-center w-[350px] h-[300px] bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-16 rounded-[50px] gap-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)]">month</div>
             <div className="flex flex-col items-center w-[350px] h-[300px] bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-16 rounded-[50px] gap-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)]">month</div>
