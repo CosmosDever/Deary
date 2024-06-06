@@ -55,11 +55,12 @@ export async function GET(
     }
 
     const diaryEntries = Object.values(diary.diary);
-    const diaryTitles = diaryEntries.map((entry: DiaryEntry) => entry.title);
+    const alldiaryDT = diaryEntries.map(
+      (entry: DiaryEntry) => entry.dateandtime
+    );
 
     return NextResponse.json({
-      success: true,
-      diaryTitles: diaryTitles,
+      diaryEntries,
     });
   } catch (error) {
     return NextResponse.json({
