@@ -54,12 +54,10 @@ export async function GET(
       });
     }
 
-    const diaryEntries = Object.values(diary.diary);
-    const diaryTitles = diaryEntries.map((entry: DiaryEntry) => entry.title);
+    const diaryEntries = diary.diary;
 
     return NextResponse.json({
-      success: true,
-      diaryTitles: diaryTitles,
+      diaryEntries,
     });
   } catch (error) {
     return NextResponse.json({
