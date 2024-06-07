@@ -20,7 +20,7 @@ export default function Page() {
                 return;
             }
 
-            const res = await fetch(`http://localhost:3000/api/Account/ChangePassword`, {
+            const res = await fetch(`http://localhost:3000/api/Account/changePassword`, {
                 method: "POST",
                 body: JSON.stringify({ email: email, newPassword: newPassword }),
                 headers: { "Content-Type": "application/json" },

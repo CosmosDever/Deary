@@ -11,7 +11,7 @@ export default function Page() {
             <p className='text-[20px] md:text-[23px] lg:text-[25px]'>Welcome to Deary</p>
             <p className='text-[20px] md:text-[23px] lg:text-[25px]'>the safest place for your thoughts.</p>
             <p className='text-[20px] md:text-[23px] lg:text-[25px] text-[#212121]'>Let’s keep your memory and your mood!</p>
-            <a href="/sign-in">
+            <a href="/year-total">
               <button className='bg-[#6C2BB8] w-[150px] md:w-[180px] rounded-[10px] p-2 text-[18px] md:text-[20px] text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-[20px] md:mt-[30px]'>Get started</button>
             </a>
           </div>
