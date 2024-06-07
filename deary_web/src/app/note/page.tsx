@@ -315,7 +315,7 @@ export default function Page() {
                 ))}
 
                 <div className="flex flex-row justify-center gap-3 sm:gap-4 lg:gap-5">
-                    <a href="/select-feel">
+                    <a href="/select-feeling">
                         <button className='signin-button bg-[#6C2BB8] w-[90px] sm:w-[100px] lg:w-[110px] rounded-[8px] sm:rounded-[9px] lg:rounded-[10px] p-1.5 sm:p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
                                             transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100' 
                         type="button">Back</button>
