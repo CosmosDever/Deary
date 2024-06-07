@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-// import { AxiosLib } from '../../lib/axios'
 import Swal from "sweetalert2";
 
 export default function Page() {
@@ -17,6 +16,22 @@ export default function Page() {
       });
       const data = await res.json();
       console.log(data);
+
+      if (data.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Successful!',
+          text: 'You have successfully logged in.',
+        }).then(() => {
+          window.location.href = "/year-total"; 
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed!',
+          text: 'Invalid username or password. Please try again.',
+        });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -93,3 +108,4 @@ export default function Page() {
     </main>
   );
 }
+
