@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import "./page.css";
+import Swal from "sweetalert2";
 
 // Section
 function Section({
@@ -13,8 +14,6 @@ function Section({
   onSaveText,
   onEditText,
   onDeleteText,
-  onImageUpload,
-  onDeleteImage,
   onDeleteSection,
 }) {
   const { text, savedText, image, showDeleteButton, currentDateTime } = data;
@@ -43,7 +42,7 @@ function Section({
       ...prev,
       mood: String(feeling),
       newText: String(savedText),
-      image: prev.image,
+      image: image,
     }));
 
     // console.log(from_dairy);
@@ -69,7 +68,7 @@ function Section({
   const handleNextPage = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/Diary/6662e9b53c52e7979247a574/24_06_07/addpage`,
+        `http://localhost:3000/api/Diary/${id}/${formattedDateSimple}/addpage`,
         {
           method: "POST",
           headers: {
@@ -83,6 +82,23 @@ function Section({
         }
       );
       const data = await res.json();
+      if (data.success === true) {
+        // window.location.href = "/month-total";
+        Swal.fire({
+          icon: "success",
+          title: "Success!",
+          text: "your page added successfully!",
+        }).then(() => {
+          window.location.href = "/year-total";
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+        return;
+      }
       console.log(data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -95,14 +111,6 @@ function Section({
         <h1 className="flex justify-start text-[#363636] text-[25px] font-semibold">
           {currentDateTime}
         </h1>
-        {/* {showDeleteButton && (
-          <img
-            className="flex justify-end w-[25px] h-[25px] cursor-pointer"
-            src="image/x.png"
-            alt="Close"
-            onClick={confirmDeleteSection}
-          />
-        )} */}
       </div>
 
       {/* feeling */}
@@ -218,39 +226,9 @@ function Section({
         </div>
       )}
 
-      {image && (
-        <div className="relative flex justify-center items-center w-auto h-auto mt-[20px]">
-          <img
-            src={image}
-            alt="Uploaded"
-            className="max-w-full max-h-[300px] object-contain rounded-2xl"
-          />
-          {showDeleteButton && (
-            <img
-              className="absolute top-2 right-2 w-[35px] h-[35px] "
-              src="image/delete.png"
-              onClick={() => onDeleteImage(index)}
-            />
-          )}
-        </div>
-      )}
-
-      <div className="flex flex-row justify-between mt-10">
+      <div className="flex justify-end gap-5 mt-10">
         {!savedText ? (
           <>
-            <label
-              htmlFor={`file-input-${index}`}
-              className="cursor-pointer flex justify-start w-[40px] h-[40px]"
-            >
-              <img src="image/pic.png" alt="Image" />
-              <input
-                id={`file-input-${index}`}
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={(e) => onImageUpload(e, index)}
-              />
-            </label>
             <button
               className="bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
               type="button"
@@ -423,8 +401,6 @@ export default function Page() {
             onSaveText={handleSaveText}
             onEditText={handleEditText}
             onDeleteText={handleDeleteText}
-            onImageUpload={handleImageUpload}
-            onDeleteImage={handleDeleteImage}
             onDeleteSection={handleDeleteSection}
           />
         ))}

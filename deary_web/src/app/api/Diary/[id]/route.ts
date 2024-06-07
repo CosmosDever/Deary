@@ -54,10 +54,7 @@ export async function GET(
       });
     }
 
-    const diaryEntries = Object.values(diary.diary);
-    const alldiaryDT = diaryEntries.map(
-      (entry: DiaryEntry) => entry.dateandtime
-    );
+    const diaryEntries = diary.diary;
 
     return NextResponse.json({
       diaryEntries,

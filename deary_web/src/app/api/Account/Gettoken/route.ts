@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/app/lib/mongodb";
 import bcryptjs from "bcryptjs";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 export async function GET(req: NextRequest) {
   try {
@@ -11,7 +11,10 @@ export async function GET(req: NextRequest) {
     if (!cookie) {
       return NextResponse.json({ error: "No token found" }, { status: 401 });
     }
-    const response = NextResponse.json({ message: "Success", cookie: cookie });
+    const token = cookie.value;
+    const decodedToken = jwt.decode(token) as JwtPayload;
+    const id = decodedToken!.id;
+    const response = NextResponse.json({ message: "Success", id: id });
     return response;
   } catch (error) {
     console.error("Error handling GET request:", error);
