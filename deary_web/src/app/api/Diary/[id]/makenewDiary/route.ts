@@ -62,8 +62,10 @@ export async function POST(
     }
 
     const numberOfDiaries = Object.keys(userDiary.diary).length;
+    let datePart: string = formattedDate.split(",")[0];
+    let formattedDateSimple: string = datePart.replace(/\//g, "_");
 
-    const newDiaryKey = `diary${numberOfDiaries + 1}`;
+    const newDiaryKey = `${formattedDateSimple}`;
     const newDiaryEntry = {
       dateandtime: formattedDate,
       img_link: {},

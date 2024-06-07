@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import "./page.css";
 
 // Section
@@ -32,7 +33,7 @@ function Section({
   const [from_dairy, setfrom_dairy] = useState({
     newText: "",
     mood: "",
-    image: "",
+    image: "none",
   });
   const params = useSearchParams();
   useEffect(() => {
@@ -40,13 +41,53 @@ function Section({
 
     setfrom_dairy((prev) => ({
       ...prev,
-      mood: feeling ? String(feeling) : "", // Cast to string or default to empty string
-      newText: prev.newText,
+      mood: String(feeling),
+      newText: String(savedText),
       image: prev.image,
     }));
 
-    console.log(from_dairy);
-  }, [params]);
+    // console.log(from_dairy);
+  });
+  const currentDate = new Date();
+  const formattedDate = `${currentDate.getFullYear().toString().slice(-2)}/${(
+    currentDate.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}/${currentDate
+    .getDate()
+    .toString()
+    .padStart(2, "0")}, ${currentDate
+    .getHours()
+    .toString()
+    .padStart(2, "0")}:${currentDate
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}:${currentDate.getSeconds().toString().padStart(2, "0")}`;
+  let datePart: string = formattedDate.split(",")[0];
+  let formattedDateSimple: string = datePart.replace(/\//g, "_");
+  const id = "6662e9b53c52e7979247a574";
+  const handleNextPage = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/api/Diary/6662e9b53c52e7979247a574/24_06_07/addpage`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            newText: from_dairy.newText,
+            mood: from_dairy.mood,
+            image: from_dairy.image,
+          }),
+        }
+      );
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col w-[1000px] h-auto bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 px-12 rounded-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
@@ -54,28 +95,18 @@ function Section({
         <h1 className="flex justify-start text-[#363636] text-[25px] font-semibold">
           {currentDateTime}
         </h1>
-        {showDeleteButton && (
+        {/* {showDeleteButton && (
           <img
             className="flex justify-end w-[25px] h-[25px] cursor-pointer"
             src="image/x.png"
             alt="Close"
             onClick={confirmDeleteSection}
           />
-        )}
+        )} */}
       </div>
 
       {/* feeling */}
       <div className="container flex flex-col justify-center items-center">
-        {/* <div className="orb mt-[40px] drop-shadow-lg animate-gradient">
-          <div className="reflection"></div>
-          <div className="inner-glow"></div>
-        </div>
-        <h2 className="text-[20px] mt-[10px]">Sad</h2>
-        <div className="Happy_orb mt-[40px] drop-shadow-lg hover:animate-bounce animate-gradient">
-          <div className="reflection"></div>
-          <div className="inner-glow"></div>
-        </div>
-        <h2 className="text mt-[10px] ">Happy</h2> */}
         {from_dairy.mood === "happy" ? (
           <>
             <div className="Happy_orb mt-[40px] drop-shadow-lg hover:animate-bounce animate-gradient">
@@ -229,19 +260,31 @@ function Section({
             </button>
           </>
         ) : (
-          <div className="flex flex-row items-center gap-3">
-            <img
-              className="w-[40px] h-[40px] cursor-pointer ml-auto"
-              src="image/edit.png"
-              alt="Edit"
-              onClick={() => onEditText(index)}
-            />
-            <img
-              className="w-[40px] h-[40px] cursor-pointer"
-              src="image/bin.png"
-              alt="Delete"
-              onClick={confirmDeleteSection}
-            />
+          <div className="flex gap-3 justify-between w-full">
+            <div className="flex gap-3">
+              <img
+                className="w-[40px] h-[40px] cursor-pointer ml-auto"
+                src="image/edit.png"
+                alt="Edit"
+                onClick={() => onEditText(index)}
+              />
+              <img
+                className="w-[40px] h-[40px] cursor-pointer"
+                src="image/bin.png"
+                alt="Delete"
+                onClick={confirmDeleteSection}
+              />
+            </div>
+            <div>
+              <button
+                className="signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
+                                        transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
+                type="button"
+                onClick={() => handleNextPage()}
+              >
+                Next
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -274,14 +317,14 @@ export default function Page() {
     index: number
   ) => {
     const newSections = sections.slice();
-    newSections[index].text = e.target.value;
+    newSections[index].text = e.target.value || "";
+
     setSections(newSections);
   };
 
   const handleSaveText = (index: number) => {
     const newSections = sections.slice();
-    newSections[index].savedText = newSections[index].text;
-    newSections[index].text = "";
+    newSections[index].savedText = newSections[index].text || "...";
     newSections[index].showDeleteButton = false;
     setSections(newSections);
   };
@@ -387,7 +430,7 @@ export default function Page() {
         ))}
 
         <div className="flex flex-row justify-center gap-5">
-          <a href="/select-feel">
+          <a href="/select-feeling">
             <button
               className="signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
                                         transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100  "
@@ -396,24 +439,15 @@ export default function Page() {
               Back
             </button>
           </a>
-          <a href="/month-total">
-            <button
-              className="signin-button bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] 
-                                        transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
-              type="button"
-            >
-              Next
-            </button>
-          </a>
         </div>
 
-        <button
+        {/* <button
           className="fixed bottom-2 right-5 flex flex-row justify-center items-center gap-2 bg-[#6C2BB8] w-[60px] h-[60px] rounded-[100px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
           type="button"
           onClick={handleAddSection}
         >
           <img className="w-[15px] h-auto" src="image/plus.png" alt="Add" />
-        </button>
+        </button> */}
       </div>
     </main>
   );

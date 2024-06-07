@@ -4,9 +4,11 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 
 export async function POST(
   req: NextRequest,
-  { params }: { params: { id: string; diaryn: string; page: string } }
+  { params }: { params: { id: string; date: string } }
 ) {
   try {
+    const reqBody = await req.json();
+    const { newText, mood, image } = reqBody;
     const cookie = req.cookies.get("token");
 
     if (!cookie) {
@@ -24,8 +26,8 @@ export async function POST(
         message: "Unauthorized",
       });
     }
-    const diaryn = params.diaryn;
-    const page = params.page;
+    const diaryndate = params.date;
+    console.log(diaryndate);
 
     const client = await clientPromise;
     const db = client.db("Deary");
@@ -38,12 +40,54 @@ export async function POST(
         message: "You have no diary",
       });
     }
-
-    const diaryEntry = diary.diary[diaryn];
+    console.log(diary.diary[diaryndate]);
+    const diaryEntry = diary.diary[diaryndate];
     if (!diaryEntry) {
+      const currentDate = new Date();
+      const formattedDate = `${currentDate
+        .getFullYear()
+        .toString()
+        .slice(-2)}/${(currentDate.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}/${currentDate
+        .getDate()
+        .toString()
+        .padStart(2, "0")}, ${currentDate
+        .getHours()
+        .toString()
+        .padStart(2, "0")}:${currentDate
+        .getMinutes()
+        .toString()
+        .padStart(2, "0")}:${currentDate
+        .getSeconds()
+        .toString()
+        .padStart(2, "0")}`;
+
+      let datePart: string = formattedDate.split(",")[0];
+      let formattedDateSimple: string = datePart.replace(/\//g, "_");
+
+      const newDiaryKey = `${formattedDateSimple}`;
+      const newDiaryEntry = {
+        dateandtime: formattedDate,
+        img_link: {},
+        page: {
+          page1: {
+            dateandtime: formattedDate,
+            mood: mood,
+            img_link: image,
+            text: newText,
+          },
+        },
+      };
+
+      await diariesCollection.updateOne(
+        { user_id: id },
+        { $set: { [`diary.${newDiaryKey}`]: newDiaryEntry } },
+        { upsert: true }
+      );
       return NextResponse.json({
-        success: false,
-        message: "Diary entry not found",
+        success: true,
+        message: "make new diary entry",
       });
     }
 
@@ -70,20 +114,20 @@ export async function POST(
 
     diaryEntry.page[newpg] = {
       dateandtime: formattedDate,
-      mood: "none",
-      img_link: {},
-      text: "Start writing here",
+      mood: mood,
+      img_link: image,
+      text: newText,
     };
 
     await diariesCollection.updateOne(
       { user_id: id },
-      { $set: { [`diary.${diaryn}`]: diaryEntry } },
+      { $set: { [`diary.${diaryndate}`]: diaryEntry } },
       { upsert: true }
     );
 
     return NextResponse.json({
       success: true,
-      message: `'${newpg}' added successfully to the diary entry '${diaryn}'`,
+      message: `'${newpg}' added successfully to the diary entry '${diaryndate}'`,
     });
   } catch (error) {
     return NextResponse.json({
