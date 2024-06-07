@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
     console.log("Cookie:", cookie);
 
     if (!cookie) {
-      return NextResponse.json({ error: "No token found" }, { status: 401 });
+      return NextResponse.json({ message: "No token found" });
     }
     const token = cookie.value;
     const decodedToken = jwt.decode(token) as JwtPayload;

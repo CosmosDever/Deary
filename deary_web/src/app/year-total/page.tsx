@@ -11,7 +11,12 @@ export default function Page() {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       });
+
       const data_id = await res.json();
+      if (data_id.message === "No token found") {
+        window.location.href = "/sign-in";
+        return;
+      }
       setId(data_id.id);
     } catch (error) {
       console.error("Error fetching data:", error);
