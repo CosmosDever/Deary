@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import "./Nav.css";
+import Swal from "sweetalert2";
 export default function Nav() {
   const [username, setUsername] = useState("");
   const fetch_id = async () => {
@@ -22,16 +23,25 @@ export default function Nav() {
     }
   };
   const handleSignOut = async () => {
-    const res = await fetch("http://localhost:3000/api/Account/Signout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    //signout
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be signed out!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#6C2BB8",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, sign out!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await fetch("http://localhost:3000/api/Account/Signout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        window.location.href = "/";
+      }
     });
-
-    const data = res.json();
-
-    if (data.success === true) {
-      window.location.href = "/";
-    }
   };
 
   useEffect(() => {

@@ -64,7 +64,28 @@ function Section({
     .padStart(2, "0")}:${currentDate.getSeconds().toString().padStart(2, "0")}`;
   let datePart: string = formattedDate.split(",")[0];
   let formattedDateSimple: string = datePart.replace(/\//g, "_");
-  const id = "6662e9b53c52e7979247a574";
+  const [id, setId] = useState("");
+  const fetch_id = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/Account/Gettoken", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data_id = await res.json();
+      if (data_id.message === "No token found") {
+        window.location.href = "/sign-in";
+        return;
+      }
+      setId(data_id.id);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetch_id();
+  }, []);
   const handleNextPage = async () => {
     try {
       const res = await fetch(
@@ -82,6 +103,7 @@ function Section({
         }
       );
       const data = await res.json();
+      console.log(data);
       if (data.success === true) {
         // window.location.href = "/month-total";
         Swal.fire({

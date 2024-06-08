@@ -7,6 +7,14 @@ export default function Page() {
   const [password, setPassword] = useState("");
 
   const handleSignin = async (e: any) => {
+    if (!username || !password) {
+      Swal.fire({
+        icon: "error",
+        title: "Sign In Failed!",
+        text: "Please fill in all fields.",
+      });
+      return;
+    }
     try {
       e.preventDefault();
       const res = await fetch(`http://localhost:3000/api/Account/Signin`, {
@@ -19,17 +27,17 @@ export default function Page() {
 
       if (data.success) {
         Swal.fire({
-          icon: 'success',
-          title: 'Login Successful!',
-          text: 'You have successfully logged in.',
+          icon: "success",
+          title: "Login Successful!",
+          text: "You have successfully logged in.",
         }).then(() => {
-          window.location.href = "/year-total"; 
+          window.location.href = "/year-total";
         });
       } else {
         Swal.fire({
-          icon: 'error',
-          title: 'Login Failed!',
-          text: 'Invalid username or password. Please try again.',
+          icon: "error",
+          title: "Login Failed!",
+          text: "Invalid username or password. Please try again.",
         });
       }
     } catch (err) {
@@ -41,7 +49,7 @@ export default function Page() {
     <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')] font-mitr">
       <div className="flex flex-row items-center justify-center relative font-mitr mt-[40px]">
         <div className="flex flex-col sm:flex-col md:flex-row items-center justify-center bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-8 sm:p-8 md:p-10 px-10 sm:px-12 md:px-16 rounded-[50px] gap-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
-        <div className="hidden md:block md:w-[300px] md:h-[300px] lg:w-[368px] lg:h-[368px]">
+          <div className="hidden md:block md:w-[300px] md:h-[300px] lg:w-[368px] lg:h-[368px]">
             <img src="image/uni.png" />
           </div>
 
@@ -144,7 +152,7 @@ export default function Page() {
 //           title: 'Login Successful!',
 //           text: 'You have successfully logged in.',
 //         }).then(() => {
-//           router.push('/year-total'); 
+//           router.push('/year-total');
 //         });
 //       } else {
 //         Swal.fire({
@@ -157,7 +165,6 @@ export default function Page() {
 //       console.error('Error:', error);
 //     }
 //   };
-
 
 //   return (
 //     <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')] font-mitr">

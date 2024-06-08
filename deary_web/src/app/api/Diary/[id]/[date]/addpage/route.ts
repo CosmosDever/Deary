@@ -109,7 +109,9 @@ export async function POST(
       .getSeconds()
       .toString()
       .padStart(2, "0")}`;
-    const numberOfpage = Object.keys(diaryEntry.page).length;
+    const Objpage = diaryEntry.page || {};
+    const pages = Object.keys(Objpage) || [];
+    const numberOfpage = pages.length;
     const newpg = `page${numberOfpage + 1}`;
 
     diaryEntry.page[newpg] = {
@@ -130,6 +132,7 @@ export async function POST(
       message: `'${newpg}' added successfully to the diary entry '${diaryndate}'`,
     });
   } catch (error) {
+    console.error("Error adding diary entry:", error);
     return NextResponse.json({
       success: false,
       message: "Internal server error",

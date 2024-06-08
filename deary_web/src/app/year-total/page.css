@@ -1,9 +1,7 @@
-
-
 .Happy_orb {
-        width: 96px;
-        height: 96px;
-        /* background: linear-gradient(45deg,
+  width: 96px;
+  height: 96px;
+  /* background: linear-gradient(45deg,
                         rgba(255, 170, 0, 0) 30%,
                         rgba(233, 255, 33, 0) 60%,
                         rgb(255, 224, 26) 100%),
@@ -20,57 +18,60 @@
                         rgb(255, 183, 26) 0%,
                         rgba(207, 144, 76, 0.2) 50%,
                         rgba(207, 146, 76, 0) 60%); */
-        border-radius: 100%;
-        /* box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1); */
-        background: linear-gradient(#ffdf0ff1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
+  border-radius: 100%;
+  /* box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1); */
+  background: linear-gradient(#ffdf0ff1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
 }
 
 .Excited_orb {
-        border-radius: 50%;
-        height: 96px;
-        width: 96px;
-        /* background: radial-gradient(circle at 65% 15%, white 1px, rgb(223, 223, 223,0.9) 3%, rgba(217, 112, 0, 0.9) 60%); */
-        background: linear-gradient(#ff820df1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  /* background: radial-gradient(circle at 65% 15%, white 1px, rgb(223, 223, 223,0.9) 3%, rgba(217, 112, 0, 0.9) 60%); */
+  background: linear-gradient(#ff820df1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
 }
 
 .Loved_orb {
-        position :relative;
-        border-radius: 50%;
-        height: 96px;
-        width: 96px;
-        background: linear-gradient(#e13abcf1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
+  position: relative;
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  background: linear-gradient(#e13abcf1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
 }
 
-
 .Calm_orb {
-        border-radius: 50%;
-        height: 96px;
-        width: 96px;
-        background: linear-gradient(#15ba30f1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
-        /* background: radial-gradient(circle at 65% 15%, white 1px, rgb(223, 223, 223,0.9) 3%, rgba(56, 171, 17, 0.9) 60%); */
-        
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  background: linear-gradient(#15ba30f1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
+  /* background: radial-gradient(circle at 65% 15%, white 1px, rgb(223, 223, 223,0.9) 3%, rgba(56, 171, 17, 0.9) 60%); */
 }
 
 .Indifferent_orb {
-        border-radius: 50%;
-        height: 96px;
-        width: 96px;
-        background: linear-gradient(#6e6e6ef1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
-        /* background: radial-gradient(circle at 65% 15%, white 1px, rgb(223, 223, 223,0.9) 3%, rgba(93, 93, 93, 0.9) 60%); */
-        
+  border-radius: 50%;
+  height: 96px;
+  width: 96px;
+  background: linear-gradient(#6e6e6ef1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
+  /* background: radial-gradient(circle at 65% 15%, white 1px, rgb(223, 223, 223,0.9) 3%, rgba(93, 93, 93, 0.9) 60%); */
 }
 
 .Worry_orb {
-        width: 96px;
-        height: 96px;
-        background: linear-gradient(#76337df1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
-        /* background: linear-gradient(45deg,
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(#76337df1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
+  /* background: linear-gradient(45deg,
                         rgba(151, 71, 165, 0) 30%,
                         rgba(194, 86, 212, 0) 60%,
                         rgb(172, 116, 196) 100%),
@@ -87,13 +88,13 @@
                         rgb(149, 55, 243) 0%,
                         rgba(76, 110, 207, 0.2) 50%,
                         rgba(76, 110, 207, 0) 60%); */
-        border-radius: 100%;
+  border-radius: 100%;
 }
 
 .Tired_orb {
-        width: 96px;
-        height: 96px;
-        /* background: linear-gradient(45deg,
+  width: 96px;
+  height: 96px;
+  /* background: linear-gradient(45deg,
                         rgba(46, 244, 205, 0) 30%,
                         rgba(198, 171, 203, 0) 60%,
                         rgb(109, 153, 214) 100%),
@@ -110,19 +111,20 @@
                         rgb(66, 166, 146) 0%,
                         rgba(76, 110, 207, 0.2) 50%,
                         rgba(76, 110, 207, 0) 60%); */
-        background: linear-gradient(#507ba0f1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
-        border-radius: 100%;
-        /* box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1); */
+  background: linear-gradient(#507ba0f1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
+  border-radius: 100%;
+  /* box-shadow: 0 15px 55px 20px rgba(0, 0, 0, .1); */
 }
 
-
 .Sad_orb {
-        width: 96px;
-        height: 96px;
-        background: linear-gradient(#201359f1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
-        /* background: linear-gradient(45deg,
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(#201359f1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
+  /* background: linear-gradient(45deg,
                         rgba(46, 244, 205, 0) 30%,
                         rgba(198, 171, 203, 0) 60%,
                         rgb(138, 108, 214) 100%),
@@ -139,16 +141,16 @@
                         rgb(158, 98, 242) 0%,
                         rgba(109, 76, 207, 0.2) 50%,
                         rgba(98, 76, 207, 0) 60%); */
-        border-radius: 100%;
-        
+  border-radius: 100%;
 }
 
 .Moody_orb {
-        width: 96px;
-        height: 96px;
-        background: linear-gradient(#dd1717f1,#dbdadadb);
-        box-shadow: inset 0 0 10px rgba(255,255,255,1),inset 0 0 20px rgba(255,255,255,1);
-        /* background: linear-gradient(45deg,
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(#dd1717f1, #dbdadadb);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 1),
+    inset 0 0 20px rgba(255, 255, 255, 1);
+  /* background: linear-gradient(45deg,
                         rgba(244, 56, 46, 0) 30%,
                         rgba(216, 58, 5, 0.1) 60%,
                         rgb(223, 61, 85) 100%),
@@ -165,43 +167,47 @@
                         rgb(223, 61, 118) 0%,
                         rgba(216, 23, 23, 0.2) 50%,
                         rgba(207, 76, 76, 0) 60%); */
-        border-radius: 100%;
-        
+  border-radius: 100%;
 }
 
 .reflection {
-        position :absolute;
-        top:10px;
-        left:27.5px;
-        width:43px ;
-        height: 25px;
-        border-radius: 50%;
-        box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.828),inset 0 -10px 20px #dddddd79;
-        
+  position: absolute;
+  top: 10px;
+  left: 27.5px;
+  width: 43px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: inset 0 10px 30px rgba(255, 255, 255, 0.828),
+    inset 0 -10px 20px #dddddd79;
 }
 
 .inner-glow {
-        position :absolute;
-        bottom: 0;
-        left:35px;
-        width:28px ;
-        height: 13px;
-        border-radius: 50%;
-        box-shadow: inset 0 0 10px rgba(255,255,255,0.5),inset 0 0 20px rgba(255,255,255,1),0 0 30px rgba(255,255,255,1),0 0 40px rgba(255,255,255,1),0 0 50px rgba(255,255,255,1);
-        filter: blur(3px);
+  position: absolute;
+  bottom: 0;
+  left: 35px;
+  width: 28px;
+  height: 13px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 1),
+    0 0 40px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 1);
+  filter: blur(3px);
 }
 
 .selected {
-        border: 5px solid #fff; 
+  border: 5px solid #fff;
 }
 
 .line-clamp-4 {
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+.transition-transform {
+  transition: transform 1s ease-in-out;
+}
 
 /* .container .text {
         position:relative;
