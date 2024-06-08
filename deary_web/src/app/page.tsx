@@ -1,113 +1,103 @@
-import Image from "next/image";
 
-export default function Home() {
+'use client'
+
+export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex flex-col w-screen h-auto bg-[url('/image/gridbg.png')] font-mitr">
+      <section>
+        <div className='flex flex-col md:flex-row md:justify-center w-screen mt-5 gap-7 px-4 md:px-7 lg:px-7  '> {/* section1 */}
+          <div className='text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790] mt-10 md:mt-20 text-center sm:text-center md:text-left lg:text-left'>
+            <h1 className='text-[30px] sm:text-[35px] md:text-[40px] lg:text-[50px] font-semibold'>How was your day?</h1> <br />
+            <p className='text-[18px] sm:text-[20px] md:text-[23px] lg:text-[25px]'>Welcome to Deary</p>
+            <p className='text-[18px] sm:text-[20px] md:text-[23px] lg:text-[25px]'>the safest place for your thoughts.</p>
+            <p className='text-[18px] sm:text-[20px] md:text-[23px] lg:text-[25px] text-[#212121]'>Let’s keep your memory and your mood!</p>
+            <a href="/year-total">
+              <button className='bg-[#6C2BB8] w-[150px] md:w-[180px] rounded-[10px] p-2 text-[18px] md:text-[20px] text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100 mt-[20px] md:mt-[30px]'>Get started</button>
+            </a>
+          </div>
+
+          <div className='flex justify-center'>
+            <img className='w-[240px] md:w-[360px] lg:w-[480px] h-auto mt-7' src="image/rocket.png" />
+          </div>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className='flex flex-col md:flex-row justify-center mt-10 gap-10 text-[#212121] px-4'> {/* section2 */}
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <div className='flex flex-col sm:flex-row sm:justify-center  md:flex-row bg-[#FDF9F2] p-7 rounded-[15px] border-4 border-[#363636] sm:gap-4'>
+            <div className="text-center sm:text-left md:text-left">
+              <h1 className='text-[16px] md:text-[18px] lg:text-[20px] font-medium'>Keep a private and free online diary</h1>
+              <div className='text-[12px] md:text-[14px] lg:text-[16px] mt-4'>
+                <p>You want to keep your thoughts in a place </p>
+                <p>where no one can find them?</p>
+                <p>Or capture great ideas so they do not get lost?</p>
+                <p>The online diary Deary offers you a safe place </p>
+                <p>for your very personal topics.</p><br />
+              </div>
+            </div>
+            <div className='flex justify-center'>
+              <img className='w-[140px] md:w-[180px] h-[150px] md:h-[190px]' src="image/pencil.png" />
+            </div>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className='flex flex-col sm:flex-row sm:justify-center  md:flex-row bg-[#FDF9F2] p-7 rounded-[15px] gap-5 border-4 border-[#363636]'>
+            <div className="text-center  sm:text-left md:text-left ">
+              <h1 className='text-[16px] md:text-[18px] lg:text-[20px] font-medium'>Mood-Tracking</h1>
+              <p className='text-[12px] md:text-[14px] lg:text-[16px] mt-4'>Take note of your feelings while</p>
+              <p className='text-[12px] md:text-[14px] lg:text-[16px]'>journaling, and keep track of how</p>
+              <p className='text-[12px] md:text-[14px] lg:text-[16px]'>your mood fluctuates across your</p>
+              <p className='text-[12px] md:text-[14px] lg:text-[16px]'>journal entries.</p>
+            </div>
+            <div className='flex justify-center'>
+              <img className='w-[150px] md:w-[190px] h-[150px] md:h-[190px]' src="image/smile2.png" />
+            </div>
+          </div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+        <div className='w-screen'> {/* section3 */}
+          <div className='flex flex-col md:flex-row justify-center items-center gap-[20px] md:gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] text-[#212121] p-7'>
+            <div className='flex justify-center'>
+              <img className='w-[100px] md:w-[140px] h-[100px] md:h-[130px]' src="image/private.png" />
+            </div>
+            <div className='text-center text-[12px] md:text-[14px] lg:text-[16px]'>
+              <p className='text-[16px] md:text-[18px] lg:text-[20px] font-medium'>Secret and private</p>
+              <p className='mt-4'>The use of Deary is private only. There is no feature to make entries</p>
+              <p>publicly viewable. This ensures that your secret diary remains safe from</p>
+              <p>prying eyes. Just like in a good old paper diary.</p>
+            </div>
+          </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          <div className='flex flex-col md:flex-row justify-center items-center gap-[20px] md:gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] text-[#212121] p-7'>
+            <div className='text-center text-[12px] md:text-[14px] lg:text-[16px]'>
+              <p className='text-[16px] md:text-[18px] lg:text-[20px] font-medium'>Keep your mood</p>
+              <p className='mt-4'>Deary can keep your daily emotions in a crystal ball.</p>
+              <p>So you can see your overall past mood.</p>
+              <p>This allows you to explore yourself and get to know yourself more.</p>
+            </div>
+            <div className='flex justify-center'>
+              <img className='w-[80px] md:w-[100px] h-[100px] md:h-[130px]' src="image/key.png" />
+            </div>
+          </div>
+
+          <div className='flex flex-col md:flex-row justify-center items-center gap-[20px] md:gap-[40px] bg-[#FDF9F2] mt-10 border-y-4 border-[#363636] text-[#212121] p-7'>
+            <div className='flex justify-center'>
+              <img className='w-[100px] md:w-[120px] h-[120px] md:h-[140px]' src="image/accesss.png" />
+            </div>
+            <div className='text-center text-[12px] md:text-[14px] lg:text-[16px]'>
+              <p className='text-[16px] md:text-[18px] lg:text-[20px] font-medium'>Access via Internet</p>
+              <p className='mt-4'>To use Deary all you need is a computer with Internet access.</p>
+              <p>Whether you are at home or on the move if you have a sudden urge to write,</p>
+              <p>you can access your data at any time and from anywhere.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer className='flex flex-col justify-center items-center bg-[#363636] h-[120px] mt-10 w-screen gap-3'>
+          <p className='text-white text-center text-[12px] md:text-[14px] lg:text-[16px]'>Follow us</p>
+          <div className='flex justify-center'>
+            <a href=""><img className='w-[100px] md:w-[120px] h-auto' src="image/contact.png" /></a>
+          </div>
+        </footer>
+      </section>
     </main>
   );
 }

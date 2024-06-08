@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     console.log("Cookie:", cookie);
     return response;
   } catch (error: any) {
-    console.error("Error handling POST request:", error);
-    return NextResponse.json({ error: error.message });
+    console.error("Error handling POST request:");
+    return NextResponse.json({ error: "Error handling POST request:" });
   }
 }

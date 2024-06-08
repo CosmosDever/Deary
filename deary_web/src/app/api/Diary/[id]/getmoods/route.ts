@@ -1,26 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/app/lib/mongodb";
 import jwt, { JwtPayload } from "jsonwebtoken";
-interface DiaryEntry {
-  dateandtime: string;
-  img_link: { [key: string]: string };
-  page: {
-    [key: string]: {
-      dateandtime: string;
-      mood: string;
-      img_link: { [key: string]: string };
-      text: string;
-    };
-  };
-  title: string;
-}
 
-interface DiaryDocument {
-  _id: { $oid: string };
-  user_id: string;
-  diary: { [key: string]: DiaryEntry };
-}
-
+// get all moods
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -34,35 +16,44 @@ export async function GET(
         message: "Token not found in cookies",
       });
     }
+
     const token = cookie.value;
     const decodedToken = jwt.decode(token) as JwtPayload;
-    const id = params.id;
-    if (id !== decodedToken!.id) {
+    const userId = params.id;
+
+    if (userId !== decodedToken!.id) {
       return NextResponse.json({
         success: false,
         message: "Unauthorized",
       });
     }
+
     const client = await clientPromise;
     const db = client.db("Deary");
-    const diariesCollection = db.collection<DiaryDocument>("Diary");
-    const diary = await diariesCollection.findOne({ user_id: id });
+    const diariesCollection = db.collection("Diary");
+
+    const diary = await diariesCollection.findOne({ user_id: userId });
     if (!diary) {
       return NextResponse.json({
         success: false,
-        message: "Diary not found",
+        message: "You have no diary",
       });
     }
 
-    const diaryEntries = diary.diary;
+    const moods = [];
+    for (const date in diary.diary) {
+      const pages = diary.diary[date].page;
+      for (const pageKey in pages) {
+        moods.push(pages[pageKey].mood);
+      }
+    }
 
     return NextResponse.json({
-      diaryEntries,
+      success: true,
+      moods,
     });
-  } catch (error) {
-    return NextResponse.json({
-      success: false,
-      message: "Internal server error",
-    });
+  } catch (error: any) {
+    console.error("Error handling GET request:", error);
+    return NextResponse.json({ error: error.message });
   }
 }
