@@ -14,7 +14,13 @@ export async function GET(req: NextRequest) {
     const token = cookie.value;
     const decodedToken = jwt.decode(token) as JwtPayload;
     const id = decodedToken!.id;
-    const response = NextResponse.json({ message: "Success", id: id });
+    const username = decodedToken!.username;
+
+    const response = NextResponse.json({
+      message: "Success",
+      id: id,
+      username: username,
+    });
     return response;
   } catch (error) {
     console.error("Error handling GET request:", error);
