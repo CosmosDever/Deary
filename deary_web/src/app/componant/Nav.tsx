@@ -54,7 +54,7 @@ export default function Nav() {
     fetch_id();
   }, []);
   return (
-    <nav className="top-0 w-screen inset-x-0 h-[75px] bg-[#363636] font-mitr">
+    <nav className=" fixed z-50 top-0 w-screen inset-x-0 h-[75px] bg-[#363636] font-mitr">
       <div className="flex items-center justify-between h-[75px]">
         <Link
           href="/"

@@ -201,7 +201,6 @@ export default function Page() {
     color: moodColors[mood],
   }));
 
-  // Generate gradient string
   const gradientStops = moodPercentages.reduce(
     (acc, { percentage, color }, index) => {
       const previousPercentage = acc.length
@@ -240,8 +239,10 @@ export default function Page() {
     // boxShadow: "0 0 30px 0px rgba(255, 255, 255, 0.5) inset",
   };
 
+
+  
   return (
-    <main className="flex flex-col w-screen min-h-screen bg-[url('/image/gridbg.png')] bg-repeat font-mitr text-[#212121]">
+    <main className="flex flex-col w-screen min-h-screen bg-[url('/image/gridbg.png')] bg-repeat font-mitr text-[#212121] mt-[75px]">
       <div className="w-screen flex justify-center">
         <div className="flex flex-col items-center mt-10">
           <h1 className="text-[50px] font-semibold mb-5">All Your Memory</h1>
@@ -298,16 +299,16 @@ export default function Page() {
                     className="flex flex-col w-[300px] lg:w-[350px] xl:w-[450px] h-auto bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 rounded-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] relative"
                   >
                     <div className="flex flex-col justify-center ">
-                      <div className="flex flex-row justify-between">
+                      <div className="flex flex-row justify-between items-center">
                         <h1 className="text-[18px] sm:text-[20px] lg:text-[25px] font-medium">
                           {page.dateandtime}
                         </h1>
-                        <div className="flex justify-end">
+                        <div className="flex justify-end ">
                           <button
                             onClick={() => toggleDropdown(index)}
                             className="relative"
                           >
-                            <span className="text-[18px] sm:text-[20px] lg:text-[24px] opacity-50">x</span>
+                            <span className=" text-[18px] sm:text-[20px] lg:text-[24px] opacity-50">x</span>
                           </button>
                           {dropdownOpen === index && (
                             <div
@@ -430,7 +431,7 @@ export default function Page() {
                         )}
                       </div>
                     </div>
-                    <div className="text-[18px] sm:text-[20px] lg:text-[22px] mt-[10px] whitespace-pre-wrap break-words overflow-hidden relative">
+                    <div className="text-[18px] sm:text-[20px] lg:text-[22px] mt-[10px] whitespace-pre-wrap break-words overflow-hidden relative flex flex-col justify-center items-center ">
                       <p className="line-clamp-4 text-center">{page.text}</p>
                       {shouldShowReadMore(page.text) && (
                         <div className="flex justify-end px-3">
@@ -448,7 +449,7 @@ export default function Page() {
                       {page.img_link && (
                         <img
                           src={page.img_link}
-                          className="w-[50px] h-[50px]"
+                          className="w-[100px] sm:w-[120px] md:w-[150px] rounded-2xl mt-2 "
                         ></img>
                       )}
                     </div>

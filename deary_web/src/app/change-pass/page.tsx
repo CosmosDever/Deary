@@ -49,7 +49,7 @@ export default function Page() {
     };
 
 return (
-    <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')] font-mitr">
+    <main className="flex flex-col w-screen h-screen  bg-[url('/image/gridbg.png')] font-mitr mt-[75px]">
     <div className="flex flex-row items-center justify-center relative font-mitr mt-[40px]">
     <div className="flex flex-col min-[321px]:flex-col md:flex-row items-center justify-center bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-8 min-[321px]:p-8 md:p-10 px-8 min-[321px]::px-12 md:px-16 rounded-[50px] gap-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
         
