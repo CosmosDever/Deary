@@ -217,39 +217,3 @@
 .container:hover .text {
         visibility:visible;
 } */
-
-body {
-	background: #00b4ff;
-	color: #333;
-	font: 100% Lato, Arial, Sans Serif;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	overflow-x: hidden;
-}
-
-#background-wrap {
-    bottom: 0;
-	left: 0;
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: -1;
-}
-
-
-.floating {  
-  animation-name: floating;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  margin-left: 30px;
-  margin-top: 5px;
-}
-
-@keyframes floating {
-  0% { transform: translate(0,  0px); }
-  50%  { transform: translate(0, 15px); }
-  100%   { transform: translate(0, -0px); }    
-}
-
