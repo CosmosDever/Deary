@@ -229,7 +229,7 @@ export default function Page() {
     height: "200px",
     borderRadius: "50%",
     background: `conic-gradient( ${gradientString} )`,
-    backdropFilter: "blur(10px)", 
+    backdropFilter: "blur(10px)",
     boxShadow:
       "inset 0 0 10px rgba(255, 255, 255, 1), inset 0 0 20px rgba(255, 255, 255, 1)",
     position: "relative",
@@ -241,7 +241,9 @@ export default function Page() {
     <main className="flex flex-col w-screen min-h-screen bg-[url('/image/gridbg.png')] bg-repeat font-mitr text-[#212121] mt-[75px] ">
       <div className="w-screen flex justify-center">
         <div className="flex flex-col items-center mt-10">
-          <h1 className="text-[35px] sm:text-[45px] md:text-[50px] font-semibold  mb-5">All Your Memory</h1>
+          <h1 className="text-[35px] sm:text-[45px] md:text-[50px] font-semibold  mb-5">
+            All Your Memory
+          </h1>
           {pages.length === 0 ? (
             <div className="flex justify-center items-center h-full mt-10">
               <h2 className="text-[22px] font-medium opacity-50 mt-20">
@@ -266,21 +268,21 @@ export default function Page() {
                   }}
                 ></div>
                 <div
-                    style={{
-                      position: "absolute",
-                      bottom: "0",
-                      left: "85px",
-                      width: "28px",
-                      height: "13px",
-                      borderRadius: "50%",
-                      boxShadow: `inset 0 0 10px rgba(255, 255, 255, 0.5),
+                  style={{
+                    position: "absolute",
+                    bottom: "0",
+                    left: "85px",
+                    width: "28px",
+                    height: "13px",
+                    borderRadius: "50%",
+                    boxShadow: `inset 0 0 10px rgba(255, 255, 255, 0.5),
                                   inset 0 0 20px rgba(255, 255, 255, 1),
                                   0 0 30px rgba(255, 255, 255, 1),
                                   0 0 40px rgba(255, 255, 255, 1),
                                   0 0 50px rgba(255, 255, 255, 1)`,
-                      filter: "blur(3px)"
-                    }}
-                  ></div>
+                    filter: "blur(3px)",
+                  }}
+                ></div>
               </div>
               <div className="w-full h-10 text-center mt-6 text-[25px] sm:text-[35px] md:text-[40px] font-medium mb-10">
                 {" "}
@@ -288,7 +290,7 @@ export default function Page() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-5 mt-7">
-                {pages.map((page, index) => (
+                {pages.reverse().map((page, index) => (
                   <div
                     key={index}
                     className="flex flex-col w-[300px] lg:w-[350px] xl:w-[450px]  h-auto bg-[#FFFFFF] bg-opacity-[20%] backdrop-blur-sm p-10 rounded-[50px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] relative"
@@ -303,7 +305,9 @@ export default function Page() {
                             onClick={() => toggleDropdown(index)}
                             className="relative"
                           >
-                            <span className="text-[18px] sm:text-[20px] lg:text-[24px] ">x</span>
+                            <span className="text-[18px] sm:text-[20px] lg:text-[24px] ">
+                              x
+                            </span>
                           </button>
                           {dropdownOpen === index && (
                             <div
