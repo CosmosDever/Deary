@@ -228,11 +228,7 @@ export default function Page() {
     width: "200px",
     height: "200px",
     borderRadius: "50%",
-    background: `conic-gradient( ${gradientString} )`,
-    backdropFilter: "blur(10px)", 
-    // background: `radial-gradient(circle , ${gradientString})`,
-
-
+    background: `linear-gradient(43deg, ${gradientString})`,
     boxShadow:
       "inset 0 0 10px rgba(255, 255, 255, 1), inset 0 0 20px rgba(255, 255, 255, 1)",
     position: "relative",
