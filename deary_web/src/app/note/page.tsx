@@ -5,6 +5,9 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import "./page.css";
 import Swal from "sweetalert2";
+import { resolve } from "path";
+import { error } from "console";
+import { rejects } from "assert";
 
 // Section
 function Section({
@@ -13,10 +16,13 @@ function Section({
   onTextChange,
   onSaveText,
   onEditText,
+  onImageUpload,
+  onDeleteImage,
   onDeleteText,
   onDeleteSection,
 }) {
-  const { text, savedText, image, showDeleteButton, currentDateTime } = data;
+  const { text, savedText, image, saveimg, showDeleteButton, currentDateTime } =
+    data;
 
   const confirmDeleteSection = () => {
     if (window.confirm("Are you sure you want to delete this section?")) {
@@ -42,7 +48,7 @@ function Section({
       ...prev,
       mood: String(feeling),
       newText: String(savedText),
-      image: image,
+      image: saveimg,
     }));
 
     // console.log(from_dairy);
@@ -105,7 +111,6 @@ function Section({
       const data = await res.json();
       console.log(data);
       if (data.success === true) {
-        // window.location.href = "/month-total";
         Swal.fire({
           icon: "success",
           title: "Success!",
@@ -241,16 +246,51 @@ function Section({
           <p className="text-[#363636] text-[16px] md:text-[18px]">{savedText}</p>
         </div>
       )}
-  
-      <div className="flex justify-end gap-5 mt-5 md:mt-10">
+      {image && (
+        <div className="relative flex justify-center items-center w-auto h-auto mt-[20px]">
+          <img
+            src={image}
+            alt="Uploaded"
+            className="max-w-full max-h-[300px] object-contain rounded-2xl"
+          />
+          {showDeleteButton && (
+            <img
+              className="absolute top-2 right-2 w-[35px] h-[35px] cursor-pointer "
+              src="image/delete.png"
+              onClick={() => onDeleteImage(index)}
+            />
+          )}
+        </div>
+      )}
+
+      <div className="flex justify-end gap-5 mt-10">
         {!savedText ? (
-          <button
-            className="bg-[#6C2BB8] w-[90px] sm:w-[100px] md:w-[110px] rounded-[10px] text-[14px] sm:[16px] md:text-[18px] p-2 text-white border-black border-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
-            type="button"
-            onClick={() => onSaveText(index)}
-          >
-            Done
-          </button>
+          <div className="flex justify-between w-full">
+            <div>
+              {" "}
+              <label
+                htmlFor={`file-input-${index}`}
+                className="cursor-pointer flex justify-start w-[40px] h-[40px]"
+              >
+                <img src="image/pic.png" alt="Image" />
+                <input
+                  id={`file-input-${index}`}
+                  type="file"
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => onImageUpload(e, index)}
+                />
+              </label>
+            </div>
+
+            <button
+              className="bg-[#6C2BB8] w-[110px] rounded-[10px] p-2 text-white border-black border-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
+              type="button"
+              onClick={() => onSaveText(index)}
+            >
+              Done
+            </button>
+          </div>
         ) : (
           <div className="flex gap-3 justify-between w-full">
             <div className="flex gap-3">
@@ -288,6 +328,7 @@ export default function Page() {
       text: "",
       savedText: null,
       image: null,
+      saveimg: null,
       showDeleteButton: true,
       currentDateTime: new Date().toLocaleString("en-US", {
         weekday: "long",
@@ -333,16 +374,33 @@ export default function Page() {
     newSections[index].showDeleteButton = true;
     setSections(newSections);
   };
+  function convertToBase64(file) {
+    return new Promise((resolve, rejects) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        rejects(error);
+      };
+    });
+  }
 
-  const handleImageUpload = (
+  const handleImageUpload = async (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
     if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      const base64 = await convertToBase64(file);
+      console.log(base64);
+
       const reader = new FileReader();
       reader.onload = (e) => {
         const newSections = sections.slice();
         newSections[index].image = e.target?.result as string;
+        newSections[index].saveimg = base64;
         setSections(newSections);
       };
       reader.readAsDataURL(e.target.files[0]);
@@ -382,6 +440,7 @@ export default function Page() {
         text: "",
         savedText: null,
         image: null,
+        saveimg: null,
         showDeleteButton: true,
         currentDateTime: new Date().toLocaleString("en-US", {
           weekday: "long",
@@ -412,6 +471,8 @@ export default function Page() {
             onTextChange={handleTextChange}
             onSaveText={handleSaveText}
             onEditText={handleEditText}
+            onImageUpload={handleImageUpload}
+            onDeleteImage={handleDeleteImage}
             onDeleteText={handleDeleteText}
             onDeleteSection={handleDeleteSection}
           />
@@ -428,14 +489,6 @@ export default function Page() {
             </button>
           </a>
         </div>
-
-        {/* <button
-          className="fixed bottom-2 right-5 flex flex-row justify-center items-center gap-2 bg-[#6C2BB8] w-[60px] h-[60px] rounded-[100px] p-2 text-white border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#6429AA] duration-100"
-          type="button"
-          onClick={handleAddSection}
-        >
-          <img className="w-[15px] h-auto" src="image/plus.png" alt="Add" />
-        </button> */}
       </div>
     </main>
   );

@@ -445,6 +445,12 @@ export default function Page() {
                           </button>
                         </div>
                       )}
+                      {page.img_link && (
+                        <img
+                          src={page.img_link}
+                          className="w-[50px] h-[50px]"
+                        ></img>
+                      )}
                     </div>
                   </div>
                 ))}
