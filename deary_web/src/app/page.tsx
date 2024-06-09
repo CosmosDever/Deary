@@ -1,10 +1,13 @@
 
 'use client'
+import "./page.css";
 
 export default function Page() {
   return (
     <main className="flex flex-col w-screen h-auto bg-[url('/image/gridbg.png')] font-mitr mt-[75px]">
+
       <section>
+        
         <div className='flex flex-col md:flex-row md:justify-center w-screen mt-5 gap-7 px-4 md:px-7 lg:px-7  '> {/* section1 */}
           <div className='text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790] mt-10 md:mt-20 text-center sm:text-center md:text-left lg:text-left'>
             <h1 className='text-[30px] sm:text-[35px] md:text-[40px] lg:text-[50px] font-semibold'>How was your day?</h1> <br />

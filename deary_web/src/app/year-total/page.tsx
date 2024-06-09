@@ -239,7 +239,6 @@ export default function Page() {
     // boxShadow: "0 0 30px 0px rgba(255, 255, 255, 0.5) inset",
   };
 
-
   
   return (
     <main className="flex flex-col w-screen min-h-screen bg-[url('/image/gridbg.png')] bg-repeat font-mitr text-[#212121] mt-[75px]">
@@ -254,7 +253,7 @@ export default function Page() {
             </div>
           ) : (
             <div className="flex flex-col items-center">
-              <div style={orbStyles}>
+              <div style={orbStyles} className="floating ">
                 {/* Render reflection effect */}
                 <div
                   style={{

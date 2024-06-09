@@ -75,7 +75,7 @@ export default function Nav() {
               <div className="circle">{username.charAt(0).toUpperCase()}</div>
               <button
                 onClick={() => handleSignOut()}
-                className="hidden md:block justify-center items-center text-white bg-[#DB0361] w-[100px] rounded-[10px] p-2 border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#C60458] duration-100"
+                className="hidden min-[450px]:block justify-center items-center text-white bg-[#DB0361] w-[100px] rounded-[10px] p-2 border-black border-2 mb-2 shadow-[7px_6px_black] transition ease-in-out delay-130 hover:-translate-y-1 hover:scale-105 hover:bg-[#C60458] duration-100"
               >
                 Sign Out
               </button>
