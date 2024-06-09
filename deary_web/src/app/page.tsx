@@ -3,7 +3,7 @@
 
 export default function Page() {
   return (
-    <main className="flex flex-col w-screen h-auto bg-[url('/image/gridbg.png')] font-mitr mt-[75px]">
+    <main className="flex flex-col w-screen h-auto bg-[url('/image/gridbg.png')] font-mitr">
       <section>
         <div className='flex flex-col md:flex-row md:justify-center w-screen mt-5 gap-7 px-4 md:px-7 lg:px-7  '> {/* section1 */}
           <div className='text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790] mt-10 md:mt-20 text-center sm:text-center md:text-left lg:text-left'>

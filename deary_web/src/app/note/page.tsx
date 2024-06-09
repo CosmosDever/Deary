@@ -461,7 +461,7 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col w-screen h-auto text-[18px] bg-[url('/image/gridbg.png')] font-mitr mt-[75px]">
+    <main className="flex flex-col w-screen h-auto text-[18px] bg-[url('/image/gridbg.png')] font-mitr">
       <div className="flex min-h-screen flex-col items-center p-10 gap-10">
         {sections.map((section, index) => (
           <Section

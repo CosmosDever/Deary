@@ -20,7 +20,7 @@ export default function Page() {
         router.push(`/note?feeling=${feeling}`);
     };
     return (
-        <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')] font-mitr mt-[75px] ">
+        <main className="flex flex-col w-screen h-auto  bg-[url('/image/gridbg.png')] font-mitr ">
             <div className="flex min-h-screen flex-col items-center p-10">
                 <h1 className="text-[45px] font-semibold  text-transparent bg-clip-text bg-gradient-to-r from-[#662DC0] to-[#A01790] mb-[25px] ">
                     How are you feeling?
